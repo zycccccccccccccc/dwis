@@ -1,0 +1,41 @@
+dependencies {
+    implementation(project(":base"))
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-undertow")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-integration")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-oauth2")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation("org.springframework.cloud:spring-cloud-starter-security")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+
+    implementation("org.projectlombok:lombok:${LOMBOK_VERSION}")
+    implementation("org.apache.commons:commons-lang3:${COMMONS_LANG3_VERSION}")
+    implementation("com.alibaba:fastjson:${FASTJSON_VERSION}")
+    implementation("org.apache.poi:poi:${APACHE_POI}")
+    implementation("org.apache.poi:poi-ooxml:${APACHE_POI}")
+    implementation("io.github.openfeign.form:feign-form:${FEIGN_FORM}")
+    implementation("io.github.openfeign.form:feign-form-spring:${FEIGN_FORM}")
+    implementation("com.aliyun:aliyun-java-sdk-core:4.3.0")
+    implementation("org.springframework.integration:spring-integration-ip")
+    implementation("io.springfox:springfox-swagger2:2.7.0")
+    implementation("io.springfox:springfox-swagger-ui:2.7.0")
+    implementation("cn.hutool:hutool-all:5.7.6")
+    implementation("net.sf.ucanaccess:ucanaccess:5.0.1")
+    implementation("org.freemarker:freemarker:2.3.31")
+    implementation("org.apache.logging.log4j:log4j-core:${LOG4J_VERSION}")
+    implementation("org.apache.logging.log4j:log4j-api:${LOG4J_VERSION}")
+    implementation("org.apache.logging.log4j:log4j-to-slf4j:${LOG4J_VERSION}")
+    implementation 'org.jetbrains:annotations:20.1.0'
+
+//    testCompile("junit:junit:4.12")
+
+    annotationProcessor("org.projectlombok:lombok:${LOMBOK_VERSION}")
+
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}

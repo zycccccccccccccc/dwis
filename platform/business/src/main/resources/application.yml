@@ -1,0 +1,53 @@
+server:
+  port: 9081
+  servlet:
+    context-path: /dwis
+
+resource:
+  id: dwis
+
+jwt:
+  sign_key: g8O907weW1D0LZp7INv27J1UK52xf1dhQTkWzuRzPXivYRkdUibJd6NTrpb2RJ33W2PslkQUP5A0OTqbMKjrAsPouVUIqLL7KQDLGdsEAYhJfZBA2Shr6S352rlSPmYW
+
+spring:
+  application:
+    name: dwis-business
+
+  datasource:
+    url: jdbc:sqlserver://192.168.1.153:1433;databaseName=dwis
+    username: sa
+    password: 123qwe
+    hikari:
+      connection-test-query: SELECT 1
+
+  jpa:
+    show-sql: true
+    hibernate.naming.physical-strategy: tech.hciot.dwis.business.TableNamingStrategy
+
+  main.allow-bean-definition-overriding: true
+
+  servlet.multipart:
+    maxFileSize: 100MB
+    maxRequestSize: 200MB
+
+eureka:
+  client.enabled: false
+
+service-call:
+  clientId: services
+  clientSecret: VIl&CjacG*DpQONzvuYv%86no5Mn2o&x
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+dwis-business:
+  ribbon.listOfServers: 127.0.0.1:9081
+
+logging:
+  config: classpath:logback-spring.xml
+  level.root: INFO
+
+dwis:
+  staticFileUrl: /dwis-files
+  staticFilePath: e:\dwis-files\

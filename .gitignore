@@ -1,0 +1,47 @@
+# 编译器产生的文件
+*.class
+
+# IntelliJ IDEA 特定文件
+/.idea/
+*.iml
+/out/
+
+# Maven 目录
+/target/
+
+# Gradle 目录
+/build.gradle
+/gradle/
+/build/
+.gradle/
+
+# Eclipse 特定文件（如果你也用Eclipse的话）
+/.settings/
+/.project
+/.classpath
+
+# 包管理工具
+/lib/
+/libs/
+*.jar
+*.war
+
+# 系统和编辑器生成的临时文件
+.DS_Store
+Thumbs.db
+
+# 日志文件
+*.log
+
+# 本地环境配置
+/local.properties
+/private.*
+
+# 测试报告
+/test-output/
+
+# 临时文件
+*~
+
+# 忽略所有的.zip文件
+*.zip

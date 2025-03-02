@@ -1,0 +1,6 @@
+bin
+src
+build/classes
+build/resources
+build/tmp
+.git

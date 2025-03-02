@@ -1,0 +1,67 @@
+group 'tech.hciot.dwis'
+version '1.0'
+
+subprojects {
+    subproject ->
+        repositories {
+            maven { url 'https://maven.aliyun.com/repository/public' }
+            maven { url 'https://maven.aliyun.com/repository/google' }
+            maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        }
+
+        apply plugin: 'java'
+        sourceCompatibility = 1.8
+        [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+        apply plugin: 'eclipse'
+        apply plugin: 'idea'
+        apply plugin: 'io.spring.dependency-management'
+        idea {
+            module {
+                inheritOutputDirs = false
+                outputDir = file("$buildDir/classes/main/")
+                testOutputDir = file("$buildDir/classes/test/")
+            }
+        }
+
+        dependencyManagement {
+            imports {
+                mavenBom "org.springframework.cloud:spring-cloud-dependencies:${SPRING_CLOUD_BOM_VERSION}"
+            }
+        }
+
+        if (!project.name.equals("base")) {
+            apply plugin: 'org.springframework.boot'
+            apply plugin: 'application'
+
+            startScripts.enabled = false
+            test.enabled = false
+            bootDistTar.enabled = false
+//            bootDistZip.enabled = false
+            distTar.enabled = false
+            distZip.enabled = false
+        }
+
+        configurations {
+            all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+            all {
+                resolutionStrategy {
+                    force "org.apache.logging.log4j:log4j-core:${LOG4J_VERSION}"
+                    force "org.apache.logging.log4j:log4j-api:${LOG4J_VERSION}"
+                    force "org.apache.logging.log4j:log4j-to-slf4j:${LOG4J_VERSION}"
+                }
+            }
+        }
+}
+
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${SPRING_BOOT_VERSION}")
+    }
+}

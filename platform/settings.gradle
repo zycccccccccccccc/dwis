@@ -1,0 +1,3 @@
+rootProject.name = 'dwis'
+include 'base'
+include 'business'

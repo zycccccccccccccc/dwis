@@ -1,0 +1,28 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /dwis
+
+spring:
+  cloud.loadbalancer.ribbon.enabled: false
+  main.allow-bean-definition-overriding: true
+
+lab:
+  portNum: COM11
+
+service-call:
+  clientId: services
+  clientSecret: VIl&CjacG*DpQONzvuYv%86no5Mn2o&x
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+logging:
+  config: classpath:logback-spring.xml
+  file: lab.log
+  level.root: INFO
+
+dwis-business:
+#  url: http://192.168.101.123:9081
+  url: https://dwis-dev.hciot.tech
